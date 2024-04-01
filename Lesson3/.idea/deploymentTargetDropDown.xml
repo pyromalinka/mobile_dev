@@ -5,10 +5,19 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="favoritebook">
+        <State />
+      </entry>
       <entry key="intentapp">
         <State />
       </entry>
       <entry key="sharer">
+        <State />
+      </entry>
+      <entry key="simplefragmentapp">
+        <State />
+      </entry>
+      <entry key="systemintentsapp">
         <State />
       </entry>
     </value>
