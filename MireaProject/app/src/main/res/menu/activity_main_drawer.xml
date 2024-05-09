@@ -24,5 +24,9 @@
             android:id="@+id/nav_webView"
             android:icon="?android:attr/actionModeWebSearchDrawable"
             android:title="@string/menu_webView" />
+        <item
+            android:id="@+id/workerViewFragment"
+            android:icon="@android:drawable/dark_header"
+            android:title="Worker" />
     </group>
 </menu>
