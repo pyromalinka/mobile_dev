@@ -39,4 +39,19 @@
         android:name="com.mirea.makhankodv.mireaproject.Worker"
         android:label="@string/menu_worker"
         tools:layout="@layout/fragment_worker" />
+    <fragment
+        android:id="@+id/fragment_camera"
+        android:name="com.mirea.makhankodv.mireaproject.fragment_camera"
+        android:label="@string/menu_camera"
+        tools:layout="@layout/fragment_worker" />
+    <fragment
+        android:id="@+id/fragment_record"
+        android:name="com.mirea.makhankodv.mireaproject.fragment_record"
+        android:label="@string/menu_record"
+        tools:layout="@layout/fragment_worker" />
+    <fragment
+        android:id="@+id/fragment_sensor"
+        android:name="com.mirea.makhankodv.mireaproject.fragment_sensor"
+        android:label="@string/menu_sensor"
+        tools:layout="@layout/fragment_worker" />
 </navigation>

@@ -28,5 +28,18 @@
             android:id="@+id/workerViewFragment"
             android:icon="@android:drawable/dark_header"
             android:title="Worker" />
+        <item
+            android:id="@+id/fragment_camera"
+            android:icon="@android:drawable/dark_header"
+            android:title="Camera" />
+        <item
+            android:id="@+id/fragment_record"
+            android:icon="@android:drawable/dark_header"
+            android:title="Record" />
+        <item
+            android:id="@+id/fragment_sensor"
+            android:icon="@android:drawable/dark_header"
+            android:title="Sensor" />
+
     </group>
 </menu>

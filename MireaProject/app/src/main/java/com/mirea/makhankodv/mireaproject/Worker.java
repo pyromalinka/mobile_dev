@@ -21,7 +21,6 @@ public class Worker extends Fragment {
     private String mParam2;
 
     public Worker() {
-        // Required empty public constructor
     }
 
     public static Worker newInstance(String param1, String param2) {
