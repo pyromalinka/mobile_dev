@@ -6,16 +6,31 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textViewSoundLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Уровень шума: 0 dB"
-        android:textSize="24sp" />
-
     <Button
         android:id="@+id/buttonToggleRecording"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Начать измерение" />
+        android:text="Начать запись" />
+
+    <Button
+        android:id="@+id/buttonPlay05x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Воспроизвести на 0.5x"
+        android:enabled="false" />
+
+    <Button
+        android:id="@+id/buttonPlay1x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Воспроизвести на 1x"
+        android:enabled="false" />
+
+    <Button
+        android:id="@+id/buttonPlay2x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Воспроизвести на 2x"
+        android:enabled="false" />
+
 </LinearLayout>

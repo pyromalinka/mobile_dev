@@ -1,32 +1,29 @@
 package com.mirea.makhankodv.accelerometer;
 
+import android.os.Bundle;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Bundle;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import com.mirea.makhankodv.accelerometer.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
-    private TextView azimuthTextView;
-    private TextView pitchTextView;
-    private TextView rollTextView;
+    private ActivityMainBinding binding;
     private SensorManager sensorManager;
     private Sensor accelerometerSensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-        azimuthTextView = findViewById(R.id.textViewAzimuth);
-        pitchTextView = findViewById(R.id.textViewPitch);
-        rollTextView = findViewById(R.id.textViewRoll);
+        sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
@@ -48,13 +45,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             float valuePitch = event.values[1];
             float valueRoll = event.values[2];
 
-            azimuthTextView.setText("Azimuth: " + valueAzimuth);
-            pitchTextView.setText("Pitch: " + valuePitch);
-            rollTextView.setText("Roll: " + valueRoll);
+            binding.textViewAzimuth.setText("Azimuth: " + valueAzimuth);
+            binding.textViewPitch.setText("Pitch: " + valuePitch);
+            binding.textViewRoll.setText("Roll: " + valueRoll);
         }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Нет необходимости реализовывать, если не требуется отслеживать изменения точности
     }
 }

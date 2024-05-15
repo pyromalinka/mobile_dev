@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Имя"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/etAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Возраст"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etFavoriteMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Любимый фильм"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etFavoriteBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Любимая книга"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etFavoriteVideoGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Любимая видеоигра"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сохранить" />
+</LinearLayout>

@@ -1,25 +1,24 @@
 package com.mirea.makhankodv.lesson5;
 
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import com.mirea.makhankodv.lesson5.databinding.ActivityMainBinding;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.os.Bundle;
-import android.widget.ListView;
-import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import android.widget.SimpleAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    private ListView listView;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        listView = findViewById(R.id.list_view);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
@@ -39,6 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 new String[]{"Name", "Value"},
                 new int[]{android.R.id.text1, android.R.id.text2});
 
-        listView.setAdapter(simpleAdapter);
+        binding.listView.setAdapter(simpleAdapter);
     }
 }
