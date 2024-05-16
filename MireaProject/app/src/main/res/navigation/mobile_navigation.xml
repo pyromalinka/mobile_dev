@@ -64,5 +64,11 @@
         android:name="com.mirea.makhankodv.mireaproject.FileFragment"
         android:label="@string/menu_file"
         tools:layout="@layout/fragment_file" />
+    <fragment
+        android:id="@+id/nav_joke"
+        android:name="com.mirea.makhankodv.mireaproject.JokeFragment"
+        android:label="@string/menu_joke"
+        tools:layout="@layout/fragment_joke" />
+
 
 </navigation>

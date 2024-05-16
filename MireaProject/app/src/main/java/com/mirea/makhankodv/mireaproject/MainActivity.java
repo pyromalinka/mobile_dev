@@ -3,17 +3,14 @@ package com.mirea.makhankodv.mireaproject;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.mirea.makhankodv.mireaproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,12 +33,17 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_data, R.id.nav_webView, R.id.nav_worker, R.id.nav_camera, R.id.nav_record, R.id.nav_sensor, R.id.nav_profile, R.id.nav_file)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
+                R.id.nav_data, R.id.nav_webView, R.id.nav_worker,
+                R.id.nav_camera, R.id.nav_record, R.id.nav_sensor,
+                R.id.nav_profile, R.id.nav_file, R.id.nav_joke)
                 .setOpenableLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);

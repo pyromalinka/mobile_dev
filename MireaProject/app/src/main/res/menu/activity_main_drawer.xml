@@ -50,6 +50,12 @@
             android:id="@+id/nav_file"
             android:icon="@android:drawable/ic_menu_upload"
             android:title="File" />
+        <item
+            android:id="@+id/nav_joke"
+            android:icon="@drawable/smile"
+            android:title="Joke" />
+
+
 
     </group>
 </menu>
