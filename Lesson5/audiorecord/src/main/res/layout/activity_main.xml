@@ -9,7 +9,7 @@
         android:id="@+id/recordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Начать запись"
+        android:text="Начать запись.№18.БСБО-11-21 "
         android:layout_centerInParent="true"/>
 
     <Button
