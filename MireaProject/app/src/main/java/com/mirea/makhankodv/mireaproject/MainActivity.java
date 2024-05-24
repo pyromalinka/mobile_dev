@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
                 R.id.nav_data, R.id.nav_webView, R.id.nav_worker,
                 R.id.nav_camera, R.id.nav_record, R.id.nav_sensor,
-                R.id.nav_profile, R.id.nav_file, R.id.nav_joke)
+                R.id.nav_profile, R.id.nav_file, R.id.nav_joke, R.id.nav_places)
                 .setOpenableLayout(drawer)
                 .build();
 

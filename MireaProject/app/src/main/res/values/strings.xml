@@ -19,6 +19,7 @@
     <string name="menu_file">File</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_joke">Joke</string>
+    <string name="menu_places">Places</string>
     <string name="app_name2"> FirebaseAuth </string>
     <string name="label_emailpassword">Email/Password Authentication</string>
     <string name="desc_emailpassword">Use an email and password to authenticate

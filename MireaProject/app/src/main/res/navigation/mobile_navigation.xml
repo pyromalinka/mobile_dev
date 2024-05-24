@@ -69,6 +69,12 @@
         android:name="com.mirea.makhankodv.mireaproject.JokeFragment"
         android:label="@string/menu_joke"
         tools:layout="@layout/fragment_joke" />
+    <fragment
+        android:id="@+id/nav_places"
+        android:name="com.mirea.makhankodv.mireaproject.PlacesFragment"
+        android:label="Places"
+        tools:layout="@layout/fragment_places" />
+
 
 
 </navigation>
