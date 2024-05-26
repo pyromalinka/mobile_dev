@@ -23,21 +23,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Коэффициент a"
-            android:inputType="number" />
+            android:inputType="numberSigned" />
 
         <EditText
             android:id="@+id/b_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Коэффициент b"
-            android:inputType="number" />
+            android:inputType="numberSigned" />
 
         <EditText
             android:id="@+id/c_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Коэффициент c"
-            android:inputType="number" />
+            android:inputType="numberSigned" />
+
 
         <Button
             android:id="@+id/solve_button"

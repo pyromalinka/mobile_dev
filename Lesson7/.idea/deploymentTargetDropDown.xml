@@ -12,20 +12,7 @@
         <State />
       </entry>
       <entry key="timeservice">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="ALDEVB2216019346" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-05-16T16:56:55.239625700Z" />
-        </State>
+        <State />
       </entry>
     </value>
   </component>

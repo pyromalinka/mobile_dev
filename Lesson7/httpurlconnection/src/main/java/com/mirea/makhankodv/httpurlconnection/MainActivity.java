@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONObject responseJSON = new JSONObject(result);
 
-                // Displaying the IP address
                 String ip = responseJSON.getString("ip");
                 binding.ipTextView.setText("IP адрес: " + ip);
 

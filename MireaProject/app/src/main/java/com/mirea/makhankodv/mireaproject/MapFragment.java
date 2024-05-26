@@ -8,7 +8,6 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.MotionEvent;
 
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -31,55 +30,41 @@ import org.osmdroid.views.overlay.compass.CompassOverlay;
 import org.osmdroid.views.overlay.compass.InternalCompassOrientationProvider;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
-import android.view.GestureDetector;
-import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.mirea.makhankodv.mireaproject.databinding.FragmentPlacesBinding;
+import com.mirea.makhankodv.mireaproject.databinding.FragmentMapBinding;
 
-public class PlacesFragment extends Fragment {
+public class MapFragment extends Fragment {
 
     private MapView mapView = null;
     MyLocationNewOverlay locationNewOverlay;
-    private FragmentPlacesBinding binding;
-    private GestureDetector gestureDetector;
-
+    private FragmentMapBinding binding;
     private final ActivityResultLauncher<String[]> requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), permissions -> {});
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Configuration.getInstance().setUserAgentValue("MireaProject/1.0");
-        binding = FragmentPlacesBinding.inflate(inflater, container, false);
+        binding = FragmentMapBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         mapView = binding.mapView;
-
-        // Setup the GestureDetector for double taps
-        gestureDetector = new GestureDetector(requireContext(), new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                // Convert touch location to geo coordinates
-                GeoPoint geoPoint = (GeoPoint) mapView.getProjection().fromPixels((int)e.getX(), (int)e.getY());
-                // Call method to add marker at the location
-                setMarker("New Marker", geoPoint);
-                return true;
-            }
-        });
-
-        mapView.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_MOVE && v.getParent() != null) {
-                v.getParent().requestDisallowInterceptTouchEvent(true);
-            }
-            gestureDetector.onTouchEvent(event);
-            return false;
-        });
 
         if ((ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) &&
                 (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
             funcAll();
         } else {
             requestPermissionLauncher.launch(new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION});
+
         }
 
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Configuration.getInstance().load(requireContext(),
+                PreferenceManager.getDefaultSharedPreferences(requireContext()));
+        if (mapView != null) {
+            mapView.onResume();
+        }
     }
 
     @Override
@@ -95,9 +80,12 @@ public class PlacesFragment extends Fragment {
     private void setMarker(String nameMarker, GeoPoint point) {
         Marker marker = new Marker(mapView);
         marker.setPosition(point);
-        marker.setOnMarkerClickListener((marker1, mapView1) -> {
-            Snackbar.make(requireView(), nameMarker, Snackbar.LENGTH_LONG).show();
-            return true;
+        marker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker, MapView mapView) {
+                Snackbar.make(requireView(), nameMarker, Snackbar.LENGTH_LONG).show();
+                return true;
+            }
         });
         mapView.getOverlays().add(marker);
         marker.setIcon(ResourcesCompat.getDrawable(getResources(),
@@ -110,7 +98,7 @@ public class PlacesFragment extends Fragment {
         mapView.setMultiTouchControls(true);
         IMapController mapController = mapView.getController();
         mapController.setZoom(15.0);
-        GeoPoint startPoint = new GeoPoint(55.794316, 37.553706);
+        GeoPoint startPoint = new GeoPoint(55.794229, 37.700772);
         mapController.setCenter(startPoint);
 
 
@@ -132,15 +120,15 @@ public class PlacesFragment extends Fragment {
         scaleBarOverlay.setScaleBarOffset(dm.widthPixels / 2, 10);
         mapView.getOverlays().add(scaleBarOverlay);
 
-        setMarker("Дизайн завод\n" +
-                "Большая Новодмитровская улица, 36с2 - " +
-                "Развлекательный центраренда площадок для культурных мероприятий", new GeoPoint(55.805187, 37.585028));
-        setMarker("ВТБ Арена\n" +
-                "Ленинградский просп., 36, Москва - " +
-                "Стадион, спортивный комплекс", new GeoPoint(55.791472, 37.560465));
-        setMarker("Экспериментаниум\n" +
-                "Ленинградский проспект, 80к11, Москва - " +
-                "Интерактивный музей", new GeoPoint(55.808756, 37.511053));
+        setMarker("МИРЭА\n" +
+                "ул. Стромынка, 20, Москва, 107996 - " +
+                "Описание 1", new GeoPoint(55.794229, 37.700772));
+        setMarker("Соборная палата\n" +
+                "Лихов пер., 6, Москва, 127051 - " +
+                "Описание 2", new GeoPoint(55.782311, 37.617989));
+        setMarker("Шуховская башня\n" +
+                "ул. Шухова, 8, Москва, 115162 - " +
+                "Описание 3", new GeoPoint(55.719807, 37.688370));
     }
 
 }
