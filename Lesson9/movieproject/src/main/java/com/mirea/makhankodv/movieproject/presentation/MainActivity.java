@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mirea.makhankodv.movieproject.R;
 import com.mirea.makhankodv.movieproject.data.repository.MovieRepositoryImpl;
-import com.mirea.makhankodv.movieproject.data.storage.LocalStorage;
-import com.mirea.makhankodv.movieproject.data.storage.SharedPreferencesStorage;
 import com.mirea.makhankodv.movieproject.domain.models.Movie;
 import com.mirea.makhankodv.movieproject.domain.repository.MovieRepository;
 import com.mirea.makhankodv.movieproject.domain.usecases.GetFavoriteFilmUseCase;
@@ -26,11 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Сначала создаем SharedPreferencesStorage
-        LocalStorage localStorage = new SharedPreferencesStorage(this);
-        // Затем передаем его в MovieRepositoryImpl
-        movieRepository = new MovieRepositoryImpl(localStorage);
-
+        movieRepository = new MovieRepositoryImpl(this);
         movieEditText = findViewById(R.id.editTextMovie);
         resultTextView = findViewById(R.id.textViewMovie);
 
@@ -52,4 +46,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-} 
+}
