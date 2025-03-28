@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RetrofitApp</string>
+    <string name="todo_image">Todo Image</string>
+</resources>
